@@ -35,7 +35,7 @@ npm run dev
 ```
 
 Runs the API in development mode.
-Open [http://localhost:3001](http://localhost:3001) to view it in your browser.
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 ### 5. Start the React application
 
@@ -45,6 +45,6 @@ npm start
 ```
 
 Runs the app in development mode.
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Open [http://localhost:3001](http://localhost:3001) to view it in your browser.
 
 
