@@ -1,0 +1,12 @@
+@mixin font($size, $weight, $family: 'Roboto') {
+  font-size: $size;
+  font-weight: $weight;
+  font-family: $family, sans-serif;
+}
+
+@mixin layout($direction, $justify, $align-items) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align-items;
+}

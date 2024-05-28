@@ -1,0 +1,27 @@
+/* reset global settings */
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: Roboto, sans-serif;
+}
+
+h1, h2, h3, p {
+  margin: 0;
+}
+
+/* reset bullets */
+
+ul {
+  list-style-type: none;
+  margin: 0; /* remove default margin */
+  padding-left: 0; /* remove 40px default padding that comes with ul bullets */
+}
+
+/* reset links */
+
+a {
+  text-decoration: none;
+  color: inherit;
+}

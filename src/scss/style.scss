@@ -1,0 +1,22 @@
+// Import abstract files
+@import 'abstract/mixins';
+
+// Import base files
+@import 'base/colors';
+@import 'base/reset';
+@import 'base/typography';
+
+// Import elements files
+@import 'elements/dashboard';
+@import 'elements/header';
+@import 'elements/sidebar';
+@import 'elements/userGreetings';
+@import 'elements/widget';
+@import 'elements/widgetsContainer';
+
+// Import layout files
+@import 'layout/appContainer';
+@import 'layout/mainContainer';
+
+// Import pages files
+@import 'pages/debug';

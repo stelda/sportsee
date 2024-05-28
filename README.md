@@ -1,4 +1,8 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Description
+
+This project was undertaken as part of a software developer training with a specific emphasis on JavaScript React.
+
+This app has been bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
@@ -40,7 +44,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 ### 5. Start the React application
 
 ```bash
-cd ..
+cd sportsee
 npm start
 ```
 
