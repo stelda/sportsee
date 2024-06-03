@@ -1,7 +1,21 @@
 .header {
+  @include layout(row, space-between, center);
+  padding: 10px;
   background-color: black;
   color: white;
-  display: flex;
-  justify-content: space-between;
-  padding: 10px;
+
+  .logo_name {
+    @include layout(row, center, center);
+    gap: 20px;
+  }
+
+  nav  {
+    width: 75%;
+  }
+
+  nav ul {
+    @include layout(row, space-between, center);
+    gap: 20px;
+  }
 }
+
