@@ -5,3 +5,7 @@
 .nutrition-informations :nth-child(2) {
   @include font(14px, 500);
 }
+
+.sidebar p {
+  @include font(12px, 500);
+}
