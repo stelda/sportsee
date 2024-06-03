@@ -1,0 +1,50 @@
+.nutrition-stats {
+  @include layout(column, flex-start, stretch);
+  width: 258px;
+  height: 100%;
+  gap: 20px;
+
+  & > div {
+    @include layout(row, flex-start, center);
+    gap: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: $light-grey;
+  }
+}
+
+.nutrition-stats .icon-background {
+    @include layout(row, center, center);
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+
+    img {
+      width: 20px;
+      height: 20px;
+    }
+}
+
+.nutrition-calories .icon-background {
+  background-color: $calories-icon-bg;
+}
+
+.nutrition-proteins .icon-background {
+  background-color: $proteins-icon-bg;
+}
+
+.nutrition-carbs .icon-background {
+  background-color: $carbs-icon-bg;
+}
+
+.nutrition-fats .icon-background {
+  background-color: $fats-icon-bg;
+}
+
+
+.nutrition-informations :nth-child(2) {
+  color: $dark-grey;
+}
+
+
+

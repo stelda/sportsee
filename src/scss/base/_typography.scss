@@ -1,0 +1,7 @@
+.nutrition-informations :nth-child(1) {
+  @include font(20px, 700);
+}
+
+.nutrition-informations :nth-child(2) {
+  @include font(14px, 500);
+}

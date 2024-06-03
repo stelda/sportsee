@@ -1,3 +1,6 @@
+/*
+Colors Variables
+ */
 /* reset global settings */
 body {
   margin: 0;
@@ -23,6 +26,18 @@ a {
   color: inherit;
 }
 
+.nutrition-informations :nth-child(1) {
+  font-size: 20px;
+  font-weight: 700;
+  font-family: "Roboto", sans-serif;
+}
+
+.nutrition-informations :nth-child(2) {
+  font-size: 14px;
+  font-weight: 500;
+  font-family: "Roboto", sans-serif;
+}
+
 .dashboard {
   display: flex;
   flex-direction: row;
@@ -46,6 +61,10 @@ a {
   margin-bottom: 20px;
 }
 
+.username {
+  color: #E60000;
+}
+
 .widget {
   flex: 1 1 200px;
   margin: 10px;
@@ -58,11 +77,67 @@ a {
   flex-wrap: wrap;
 }
 
+.nutrition-stats {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  width: 258px;
+  height: 100%;
+  gap: 20px;
+}
+.nutrition-stats > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #FBFBFB;
+}
+
+.nutrition-stats .icon-background {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 10px;
+}
+.nutrition-stats .icon-background img {
+  width: 20px;
+  height: 20px;
+}
+
+.nutrition-calories .icon-background {
+  background-color: rgba(255, 0, 0, 0.1);
+}
+
+.nutrition-proteins .icon-background {
+  background-color: rgba(74, 184, 255, 0.1);
+}
+
+.nutrition-carbs .icon-background {
+  background-color: rgba(249, 206, 35, 0.1);
+}
+
+.nutrition-fats .icon-background {
+  background-color: rgba(253, 81, 129, 0.1);
+}
+
+.nutrition-informations :nth-child(2) {
+  color: #74798C;
+}
+
 .app-container {
   display: flex;
   flex-direction: column;
   min-width: 1024px;
   max-width: 1440px;
+  min-height: 780px;
+  margin: 0 auto;
 }
 
 .main-container {
