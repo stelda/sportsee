@@ -4,8 +4,8 @@ function Header() {
     return (
         <header className="header">
             <div className="logo_name">
-                <img src="../../logo.png" alt="Logo Sportsee" />
-                <span>Sportsee</span>
+                <img src="../../logo.png" alt="Logo SportSee" />
+                <span>SportSee</span>
             </div>
             <nav>
                 <ul>

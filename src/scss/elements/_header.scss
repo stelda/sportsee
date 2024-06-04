@@ -1,12 +1,16 @@
 .header {
   @include layout(row, space-between, center);
-  padding: 10px;
+  padding: 25px;
   background-color: black;
   color: white;
 
   .logo_name {
     @include layout(row, center, center);
     gap: 20px;
+
+    span {
+      color: $red;
+    }
   }
 
   nav  {

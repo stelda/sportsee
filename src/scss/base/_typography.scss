@@ -1,3 +1,14 @@
+header {
+  @include font(24px, 500);
+  /* lettres plus écartées */
+    letter-spacing: 2px;
+}
+.user-greetings h1 {
+  @include font(36px, 700);
+}
+.user-greetings p {
+  @include font(18px, 400);
+}
 .nutrition-informations :nth-child(1) {
   @include font(20px, 700);
 }

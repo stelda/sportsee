@@ -3,7 +3,7 @@ import DailyActivityChart from './DailyActivityChart';
 import WidgetsContainer from './WidgetsContainer';
 import NutritionStats from './NutritionStats';
 
-function Dashboard() {
+function Dashboard({ keyData }) {
     return (
         <section className="dashboard">
             <div className="chart_widgets">
@@ -11,7 +11,7 @@ function Dashboard() {
                 <WidgetsContainer />
             </div>
             <div className="nutrition">
-                <NutritionStats />
+                <NutritionStats keyData={keyData}/>
             </div>
         </section>
 

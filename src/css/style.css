@@ -27,6 +27,26 @@ a {
   color: inherit;
 }
 
+header {
+  font-size: 24px;
+  font-weight: 500;
+  font-family: "Roboto", sans-serif;
+  /* lettres plus écartées */
+  letter-spacing: 2px;
+}
+
+.user-greetings h1 {
+  font-size: 36px;
+  font-weight: 700;
+  font-family: "Roboto", sans-serif;
+}
+
+.user-greetings p {
+  font-size: 18px;
+  font-weight: 400;
+  font-family: "Roboto", sans-serif;
+}
+
 .nutrition-informations :nth-child(1) {
   font-size: 20px;
   font-weight: 700;
@@ -48,6 +68,7 @@ a {
 .dashboard {
   display: flex;
   flex-direction: row;
+  gap: 20px;
 }
 
 .header {
@@ -55,7 +76,7 @@ a {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
+  padding: 25px;
   background-color: black;
   color: white;
 }
@@ -65,6 +86,9 @@ a {
   justify-content: center;
   align-items: center;
   gap: 20px;
+}
+.header .logo_name span {
+  color: #E60000;
 }
 .header nav {
   width: 75%;
@@ -92,7 +116,7 @@ a {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 70%;
+  height: 60%;
   gap: 20px;
 }
 .sidebar li {
@@ -205,15 +229,13 @@ a {
 }
 
 .main-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
   width: 100%;
-}
-
-.user-greetings {
-  border: 5px solid greenyellow;
-}
-
-.dashboard {
-  border: 5px solid rebeccapurple;
+  padding: 50px 100px;
+  gap: 30px;
 }
 
 .chart_widgets {
@@ -230,10 +252,6 @@ a {
 
 .widget {
   border: 5px solid black;
-}
-
-.nutrition {
-  border: 5px solid green;
 }
 
 .error404 {

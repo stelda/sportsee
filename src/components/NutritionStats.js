@@ -4,7 +4,7 @@ import iconProteins from '../assets/icon_proteins.png';
 import iconCarbs from '../assets/icon_carbs.png';
 import iconFats from '../assets/icon_fats.png';
 
-function NutritionStats() {
+function NutritionStats({ keyData }) {
     return (
         <div className="nutrition-stats">
             <div className="nutrition-calories">
@@ -12,7 +12,7 @@ function NutritionStats() {
                     <img src={iconCalories} alt="calories icon" />
                 </div>
                 <div className="nutrition-informations">
-                    <p>725<span>kCal</span></p>
+                    <p>{keyData.calorieCount}<span>kCal</span></p>
                     <p>Calories</p>
                 </div>
             </div>
@@ -21,7 +21,7 @@ function NutritionStats() {
                     <img src={iconProteins} alt="proteins icon" />
                 </div>
                 <div className="nutrition-informations">
-                    <p>25<span>g</span></p>
+                    <p>{keyData.proteinCount}<span>g</span></p>
                     <p>Protéines</p>
                 </div>
             </div>
@@ -30,7 +30,7 @@ function NutritionStats() {
                     <img src={iconCarbs} alt="carbs icon" />
                 </div>
                 <div className="nutrition-informations">
-                    <p>50<span>g</span></p>
+                    <p>{keyData.carbohydrateCount}<span>g</span></p>
                     <p>Glucides</p>
                 </div>
             </div>
@@ -39,7 +39,7 @@ function NutritionStats() {
                     <img src={iconFats} alt="fats icon" />
                 </div>
                 <div className="nutrition-informations">
-                    <p>15<span>g</span></p>
+                    <p>{keyData.lipidCount}<span>g</span></p>
                     <p>Lipides</p>
                 </div>
             </div>
