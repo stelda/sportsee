@@ -1,8 +1,14 @@
 import React from 'react';
+import { Navigate } from 'react-router-dom';
 import { USER_MAIN_DATA } from "../mock/mockData";
 
 function UserGreetings({userId}) {
     const user = USER_MAIN_DATA.find(user => user.id === parseInt(userId));
+
+    if (!user) {
+        return <Navigate to="/404"/>
+    }
+
     const { firstName } = user.userInfos;
 
     return (

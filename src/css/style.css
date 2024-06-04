@@ -204,12 +204,8 @@ a {
   flex-grow: 1;
 }
 
-.app-container {
-  border: 5px solid blue;
-}
-
 .main-content {
-  border: 5px solid dodgerblue;
+  width: 100%;
 }
 
 .user-greetings {
@@ -238,6 +234,15 @@ a {
 
 .nutrition {
   border: 5px solid green;
+}
+
+.error404 {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 250px;
 }
 
 /*# sourceMappingURL=style.css.map */
