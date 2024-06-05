@@ -3,18 +3,17 @@ import DailyActivityChart from './DailyActivityChart';
 import WidgetsContainer from './WidgetsContainer';
 import NutritionStats from './NutritionStats';
 
-function Dashboard({ keyData }) {
+function Dashboard({ userId, keyData }) {
     return (
         <section className="dashboard">
             <div className="chart_widgets">
-                <DailyActivityChart />
+                <DailyActivityChart userId={userId}/>
                 <WidgetsContainer />
             </div>
             <div className="nutrition">
                 <NutritionStats keyData={keyData}/>
             </div>
         </section>
-
     );
 }
 

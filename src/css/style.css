@@ -35,6 +35,13 @@ header {
   letter-spacing: 2px;
 }
 
+.sidebar p {
+  font-size: 12px;
+  font-weight: 500;
+  font-family: "Roboto", sans-serif;
+}
+
+/*=== user greetings ===*/
 .user-greetings h1 {
   font-size: 36px;
   font-weight: 700;
@@ -47,10 +54,18 @@ header {
   font-family: "Roboto", sans-serif;
 }
 
+/*=== nutrition ===*/
 .nutrition-informations :nth-child(1) {
   font-size: 20px;
   font-weight: 700;
   font-family: "Roboto", sans-serif;
+}
+@media (max-width: 1024px) {
+  .nutrition-informations :nth-child(1) {
+    font-size: 18px;
+    font-weight: 700;
+    font-family: "Roboto", sans-serif;
+  }
 }
 
 .nutrition-informations :nth-child(2) {
@@ -59,8 +74,21 @@ header {
   font-family: "Roboto", sans-serif;
 }
 
-.sidebar p {
-  font-size: 12px;
+/*=== dashboard ===*/
+.daily-activity-chart h3 {
+  font-size: 15px;
+  font-weight: 500;
+  font-family: "Roboto", sans-serif;
+}
+
+.legend-text {
+  font-size: 14px;
+  font-weight: 500;
+  font-family: "Roboto", sans-serif;
+}
+
+.custom-tooltip p {
+  font-size: 7px;
   font-weight: 500;
   font-family: "Roboto", sans-serif;
 }
@@ -68,7 +96,36 @@ header {
 .dashboard {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
   gap: 20px;
+}
+
+.chart_widgets {
+  min-width: 70%;
+}
+
+.legend-text {
+  color: #74798C;
+}
+
+.daily-activity-chart {
+  background-color: #FBFBFB;
+  padding: 20px;
+}
+.daily-activity-chart h3 {
+  position: relative;
+  top: 20px;
+}
+.daily-activity-chart .custom-tooltip {
+  background-color: #E60000;
+  padding: 10px;
+}
+.daily-activity-chart .custom-tooltip p {
+  color: white;
+  text-align: center;
+  margin: 15px 0;
+  line-height: 1.5;
 }
 
 .header {
@@ -76,7 +133,7 @@ header {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 25px;
+  padding: 25px 100px 25px 25px;
   background-color: black;
   color: white;
 }
@@ -150,7 +207,7 @@ header {
 
 .widget {
   flex: 1 1 200px;
-  margin: 10px;
+  margin: 10px 0;
   padding: 20px;
   background-color: lightgray;
 }
@@ -158,14 +215,18 @@ header {
 .widgets-container {
   display: flex;
   flex-wrap: wrap;
+  gap: 20px;
+}
+
+.nutrition {
+  width: 25%;
 }
 
 .nutrition-stats {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: stretch;
-  width: 258px;
   height: 100%;
   gap: 20px;
 }
@@ -187,6 +248,8 @@ header {
   align-items: center;
   width: 60px;
   height: 60px;
+  min-width: 35px;
+  min-height: 35px;
   border-radius: 10px;
 }
 .nutrition-stats .icon-background img {
@@ -236,22 +299,6 @@ header {
   width: 100%;
   padding: 50px 100px;
   gap: 30px;
-}
-
-.chart_widgets {
-  border: 5px solid yellow;
-}
-
-.daily-activity-chart {
-  border: 5px solid orange;
-}
-
-.widgets-container {
-  border: 5px solid brown;
-}
-
-.widget {
-  border: 5px solid black;
 }
 
 .error404 {

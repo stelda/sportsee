@@ -1,5 +1,34 @@
 .dashboard {
-  display: flex;
-  flex-direction: row;
+  @include layout(row, space-between, stretch);
   gap: 20px;
+}
+
+.chart_widgets {
+  min-width: 70%;
+}
+
+.legend-text {
+  color: $dark-grey;
+}
+
+.daily-activity-chart {
+  background-color: $light-grey;
+  padding: 20px;
+
+  h3 {
+    position: relative;
+    top: 20px;
+  }
+
+  .custom-tooltip {
+    background-color: $red;
+    padding: 10px;
+
+    p {
+      color: white;
+      text-align: center;
+      margin: 15px 0;
+      line-height: 1.5;
+    }
+  }
 }

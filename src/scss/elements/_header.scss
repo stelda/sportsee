@@ -1,6 +1,6 @@
 .header {
   @include layout(row, space-between, center);
-  padding: 25px;
+  padding: 25px 100px 25px 25px;
   background-color: black;
   color: white;
 

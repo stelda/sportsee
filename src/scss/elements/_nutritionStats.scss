@@ -1,6 +1,9 @@
+.nutrition {
+  width: 25%
+}
+
 .nutrition-stats {
-  @include layout(column, flex-start, stretch);
-  width: 258px;
+  @include layout(column, space-between, stretch);
   height: 100%;
   gap: 20px;
 
@@ -17,6 +20,8 @@
     @include layout(row, center, center);
     width: 60px;
     height: 60px;
+    min-width: 35px;
+    min-height: 35px;
     border-radius: 10px;
 
     img {
