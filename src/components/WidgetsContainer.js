@@ -1,12 +1,14 @@
 import React from 'react';
-import Widget from './Widget';
+import AverageSessionsChart from "./AverageSessionsChart";
+import PerformanceChart from "./PerformanceChart";
+import ScoreChart from "./ScoreChart";
 
-function WidgetsContainer() {
+function WidgetsContainer({ userId }) {
     return (
         <div className="widgets-container">
-            <Widget title="Durée moyenne des sessions"/>
-            <Widget title="Intensité"/>
-            <Widget title="Score"/>
+            <AverageSessionsChart userId={userId}/>
+            <PerformanceChart userId={userId}/>
+            <ScoreChart userId={userId}/>
         </div>
     );
 }

@@ -74,25 +74,58 @@ header {
   font-family: "Roboto", sans-serif;
 }
 
-/*=== dashboard ===*/
+/*=== daily activity chart ===*/
 .daily-activity-chart h3 {
   font-size: 15px;
   font-weight: 500;
   font-family: "Roboto", sans-serif;
 }
-
-.legend-text {
+.daily-activity-chart .legend-text {
   font-size: 14px;
   font-weight: 500;
   font-family: "Roboto", sans-serif;
 }
-
-.custom-tooltip p {
+.daily-activity-chart .custom-tooltip p {
   font-size: 7px;
   font-weight: 500;
   font-family: "Roboto", sans-serif;
 }
 
+.average-sessions-chart {
+  font-size: 15px;
+  font-weight: 500;
+  font-family: "Roboto", sans-serif;
+}
+.average-sessions-chart h3 {
+  font-size: 15px;
+  font-weight: 500;
+  font-family: "Roboto", sans-serif;
+  line-height: 2;
+}
+
+.performance-chart {
+  font-size: 12px;
+  font-weight: 500;
+  font-family: "Roboto", sans-serif;
+}
+
+.score-chart h3 {
+  font-size: 15px;
+  font-weight: 500;
+  font-family: "Roboto", sans-serif;
+}
+.score-chart .progress-percentage {
+  font-size: 26px;
+  font-weight: 700;
+  font-family: "Roboto", sans-serif;
+}
+.score-chart .progress-label {
+  font-size: 16px;
+  font-weight: 500;
+  font-family: "Roboto", sans-serif;
+}
+
+/* (daily activity) chart & widgets + nutrition */
 .dashboard {
   display: flex;
   flex-direction: row;
@@ -101,14 +134,16 @@ header {
   gap: 20px;
 }
 
+/* (daily activity) chart & widgets */
 .chart_widgets {
-  min-width: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 20px;
 }
 
-.legend-text {
-  color: #74798C;
-}
-
+/* daily activity chart */
 .daily-activity-chart {
   background-color: #FBFBFB;
   padding: 20px;
@@ -116,6 +151,9 @@ header {
 .daily-activity-chart h3 {
   position: relative;
   top: 20px;
+}
+.daily-activity-chart .legend-text {
+  color: #74798C;
 }
 .daily-activity-chart .custom-tooltip {
   background-color: #E60000;
@@ -126,6 +164,41 @@ header {
   text-align: center;
   margin: 15px 0;
   line-height: 1.5;
+}
+
+/* 3 elements below the daily activity chart */
+.widgets-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
+  flex-wrap: nowrap;
+  gap: 20px;
+}
+
+.average-sessions-chart, .performance-chart, .score-chart {
+  border-radius: 10px;
+  width: 258px;
+  margin: 0;
+}
+
+.average-sessions-chart {
+  background-color: #E60000;
+  color: rgba(255, 255, 255, 0.5);
+}
+.average-sessions-chart h3 {
+  position: absolute;
+  top: -230px;
+  left: 20px;
+  width: 75%;
+}
+
+.performance-chart {
+  background-color: #282D30;
+}
+
+.score-chart {
+  background-color: #FBFBFB;
 }
 
 .header {
@@ -205,19 +278,6 @@ header {
   color: #E60000;
 }
 
-.widget {
-  flex: 1 1 200px;
-  margin: 10px 0;
-  padding: 20px;
-  background-color: lightgray;
-}
-
-.widgets-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-
 .nutrition {
   width: 25%;
 }
@@ -236,7 +296,7 @@ header {
   justify-content: flex-start;
   align-items: center;
   gap: 20px;
-  padding: 20px;
+  padding: 30px;
   border-radius: 10px;
   background-color: #FBFBFB;
 }

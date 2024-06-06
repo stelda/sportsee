@@ -1,15 +1,16 @@
+/* (daily activity) chart & widgets + nutrition */
 .dashboard {
   @include layout(row, space-between, stretch);
   gap: 20px;
 }
 
+/* (daily activity) chart & widgets */
 .chart_widgets {
-  min-width: 70%;
+  @include layout(column, flex-start, stretch);
+  gap: 20px;
 }
 
-.legend-text {
-  color: $dark-grey;
-}
+/* daily activity chart */
 
 .daily-activity-chart {
   background-color: $light-grey;
@@ -18,6 +19,10 @@
   h3 {
     position: relative;
     top: 20px;
+  }
+
+  .legend-text {
+    color: $dark-grey;
   }
 
   .custom-tooltip {
@@ -32,3 +37,37 @@
     }
   }
 }
+
+/* 3 elements below the daily activity chart */
+.widgets-container {
+  @include layout(row, space-between, stretch);
+  flex-wrap: nowrap;
+  gap: 20px;
+}
+
+.average-sessions-chart, .performance-chart, .score-chart {
+  border-radius: 10px;
+  width: 258px;
+  margin: 0;
+}
+
+.average-sessions-chart {
+  background-color: $red;
+  color: rgba(255, 255, 255, 0.5);
+
+  h3 {
+    position: absolute;
+    top: -230px;
+    left: 20px;
+    width: 75%;
+  }
+}
+
+.performance-chart {
+  background-color: $light-black;
+}
+
+.score-chart {
+  background-color: #FBFBFB;
+}
+

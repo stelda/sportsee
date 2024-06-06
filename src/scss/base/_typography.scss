@@ -29,16 +29,44 @@ header {
   @include font(14px, 500);
 }
 
-/*=== dashboard ===*/
+/*=== daily activity chart ===*/
 
-.daily-activity-chart h3 {
+.daily-activity-chart {
+  h3 {
+    @include font(15px, 500);
+  }
+  .legend-text {
+    @include font(14px, 500);
+  }
+  .custom-tooltip p {
+    @include font(7px, 500);
+  }
+}
+
+.average-sessions-chart {
   @include font(15px, 500);
+
+  h3 {
+      @include font(15px, 500);
+      line-height: 2;
+  }
 }
 
-.legend-text {
-  @include font(14px, 500);
+.performance-chart {
+  @include font(12px, 500);
 }
 
-.custom-tooltip p {
-  @include font(7px, 500);
+.score-chart {
+
+  h3 {
+    @include font(15px, 500);
+  }
+
+  .progress-percentage {
+    @include font(26px, 700);
+  }
+
+  .progress-label {
+    @include font(16px, 500);
+  }
 }

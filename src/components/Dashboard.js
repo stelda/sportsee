@@ -8,7 +8,7 @@ function Dashboard({ userId, keyData }) {
         <section className="dashboard">
             <div className="chart_widgets">
                 <DailyActivityChart userId={userId}/>
-                <WidgetsContainer />
+                <WidgetsContainer userId={userId}/>
             </div>
             <div className="nutrition">
                 <NutritionStats keyData={keyData}/>
