@@ -1,15 +1,38 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import { Navigate } from 'react-router-dom';
-import { USER_MAIN_DATA } from "../mock/mockData";
+import { getUserData} from "../data/apiData";
 
 function UserGreetings({userId}) {
-    const user = USER_MAIN_DATA.find(user => user.id === parseInt(userId));
 
-    if (!user) {
-        return <Navigate to="/404"/>
+    const [user, setUser] = useState(null);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+
+    useEffect(() => {
+        const fetchUserData = async () => {
+            try {
+                const data = await getUserData(userId);
+                setUser(data);
+            } catch (err) {
+                setError(err);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchUserData();
+    }, [userId]);
+
+    if (loading) {
+        return <p>Loading...</p>;
     }
 
-    const { firstName } = user.userInfos;
+    if (error || !user) {
+        return <Navigate to="/404" />;
+    }
+
+
+    const { firstName } = user.data.userInfos;
 
     return (
         <section className="user-greetings">

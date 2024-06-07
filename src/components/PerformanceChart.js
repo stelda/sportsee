@@ -1,12 +1,36 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import { ResponsiveContainer, RadarChart, PolarGrid, PolarAngleAxis, Radar, Tooltip } from 'recharts';
-import { USER_PERFORMANCE } from "../mock/mockData";
+import { getUserPerformance} from "../data/apiData";
+import {Navigate} from "react-router-dom";
 
 function PerformanceChart({ userId }) {
-    const userPerformance = USER_PERFORMANCE.find(performance => performance.userId === parseInt(userId));
 
-    if (!userPerformance) {
-        return <p>No data available</p>;
+    const [userPerformance, setUserPerformance] = useState(null);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+
+    useEffect(() => {
+        const fetchUserData = async () => {
+            try {
+                const data = await getUserPerformance(userId);
+                setUserPerformance(data.data);
+            } catch (err) {
+                setError(err);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchUserData();
+    }
+    , [userId]);
+
+    if (loading) {
+        return <p>Loading...</p>;
+    }
+
+    if (error || !userPerformance) {
+        return <Navigate to="/404" />;
     }
 
 

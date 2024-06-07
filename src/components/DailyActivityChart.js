@@ -1,12 +1,37 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import { ResponsiveContainer, BarChart, CartesianGrid, XAxis, YAxis,  Tooltip, Legend, Bar } from 'recharts';
-import { USER_ACTIVITY } from "../mock/mockData";
+import { getUserActivity} from "../data/apiData";
+import {Navigate} from "react-router-dom";
+
 
 function DailyActivityChart({ userId }) {
-    const userActivity = USER_ACTIVITY.find(activity => activity.userId === parseInt(userId));
 
-    if (!userActivity) {
-        return <p>No data available</p>;
+    const [userActivity, setUserActivity] = useState(null);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+
+    useEffect(() => {
+        const fetchUserData = async () => {
+            try {
+                const data = await getUserActivity(userId);
+                setUserActivity(data.data);
+            } catch (err) {
+                setError(err);
+            }
+            finally {
+                setLoading(false);
+            }
+        };
+
+        fetchUserData();
+    }, [userId]);
+
+    if (loading) {
+        return <p>Loading...</p>;
+    }
+
+    if (error || !userActivity) {
+        return <Navigate to="/404" />;
     }
 
     /* format data for the chart */

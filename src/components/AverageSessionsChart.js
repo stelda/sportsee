@@ -1,13 +1,37 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {ResponsiveContainer, LineChart, Line, XAxis, YAxis, Tooltip, Rectangle, Legend} from 'recharts';
-import { USER_AVERAGE_SESSIONS } from "../mock/mockData";
+import { getUserAverageSessions} from "../data/apiData";
+import {Navigate} from "react-router-dom";
 
 function AverageSessionsChart({ userId }) {
-    const userSessions = USER_AVERAGE_SESSIONS.find(session => session.userId === parseInt(userId));
 
-    if (!userSessions) {
-        return <p>No data available</p>;
+    const [userSessions, setUserSessions] = useState(null);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+
+    useEffect(() => {
+        const fetchUserData = async () => {
+            try {
+                const data = await getUserAverageSessions(userId);
+                setUserSessions(data.data);
+            } catch (err) {
+                setError(err);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchUserData();
+    }, [userId]);
+
+    if (loading) {
+        return <p>Loading...</p>;
     }
+
+    if (error || !userSessions) {
+        return <Navigate to="/404" />;
+    }
+
 
     const data = userSessions.sessions.map(session => ({
         day: session.day,

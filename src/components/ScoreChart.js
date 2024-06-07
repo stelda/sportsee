@@ -1,23 +1,45 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import { RadialBarChart, RadialBar, ResponsiveContainer } from 'recharts';
-import { USER_MAIN_DATA } from '../mock/mockData';
+import { getUserData} from "../data/apiData";
+import {Navigate} from "react-router-dom";
 
 function ScoreChart({ userId }) {
-    const user = USER_MAIN_DATA.find(user => user.id === parseInt(userId));
 
-    if (!user) {
-        return <p>No data available</p>;
+    const [user, setUser] = useState(null);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+
+    useEffect(() => {
+        const fetchUserData = async () => {
+            try {
+                const data = await getUserData(userId);
+                setUser(data);
+            } catch (err) {
+                setError(err);
+            } finally {
+                setLoading(false);
+            }
+        }
+        fetchUserData();
+    }, [userId]);
+
+    if (loading) {
+        return <p>Loading...</p>;
+    }
+
+    if (error || !user) {
+        return <Navigate to="/404" />;
     }
 
     const data = [
         {
             name: 'Score',
-            value: user.todayScore * 100,
+            value: user.data.todayScore * 100,
             fill: '#E60000'
         }
     ];
 
-    const endAngle = 90 + (user.todayScore * 360);
+    const endAngle = 90 + (user.data.todayScore * 360);
 
     return (
         <div className="score-chart">
