@@ -3,6 +3,12 @@ import {ResponsiveContainer, LineChart, Line, XAxis, YAxis, Tooltip, Rectangle, 
 import { getUserAverageSessions} from "../data/apiData";
 import {Navigate} from "react-router-dom";
 
+/**
+ * Renders an average sessions chart for a specific user.
+ * @param {object} options - The options for the chart.
+ * @param {string} options.userId - The user ID.
+ * @return {JSX.Element} The average sessions chart component.
+ */
 function AverageSessionsChart({ userId }) {
 
     const [userSessions, setUserSessions] = useState(null);

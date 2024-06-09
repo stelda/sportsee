@@ -1,5 +1,10 @@
 import React from 'react';
 
+/**
+ * Creates a 404 error page.
+ *
+ * @returns {JSX.Element} The JSX element representing the error page.
+ */
 function Error404() {
     return (
         <main className='main-content'>

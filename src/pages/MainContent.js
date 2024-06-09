@@ -5,6 +5,11 @@ import {Navigate, useParams} from "react-router-dom";
 import { getUserData} from "../data/apiData";
 import {useFetchUserData} from "../hooks/fetchUserData";
 
+/**
+ * Renders the main content of the app based on the given user ID.
+ *
+ * @returns {React.Element} The main content component.
+ */
 function MainContent() {
     const { userId } = useParams();
 

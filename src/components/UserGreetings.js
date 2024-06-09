@@ -3,6 +3,14 @@ import { Navigate } from 'react-router-dom';
 import { getUserData} from "../data/apiData";
 import {useFetchUserData} from "../hooks/fetchUserData";
 
+/**
+ * Render the user greetings section.
+ *
+ * @param {Object} params - The parameters object.
+ * @param {string} params.userId - The ID of the user.
+ *
+ * @returns {JSX.Element} - The rendered user greetings section.
+ */
 function UserGreetings({userId}) {
 
     const { data: user, loading, error } = useFetchUserData(userId, getUserData);

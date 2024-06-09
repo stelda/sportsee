@@ -5,7 +5,10 @@ import Header from './components/Header.js';
 import Sidebar from './components/Sidebar.js';
 import './css/style.css';
 
-
+/**
+ * Creates the main app component.
+ * @returns {React.Component} The main app component.
+ */
 function App() {
   return (
       <Router>

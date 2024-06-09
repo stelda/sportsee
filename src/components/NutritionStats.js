@@ -4,6 +4,17 @@ import iconProteins from '../assets/icon_proteins.png';
 import iconCarbs from '../assets/icon_carbs.png';
 import iconFats from '../assets/icon_fats.png';
 
+/**
+ * Renders the nutrition statistics based on the provided keyData.
+ *
+ * @param {Object} keyData - The nutrition data object.
+ * @param {number} keyData.calorieCount - The calorie count.
+ * @param {number} keyData.proteinCount - The protein count.
+ * @param {number} keyData.carbohydrateCount - The carbohydrate count.
+ * @param {number} keyData.lipidCount - The lipid count.
+ *
+ * @return {JSX.Element} - The rendered nutrition statistics component.
+ */
 function NutritionStats({ keyData }) {
     return (
         <div className="nutrition-stats">

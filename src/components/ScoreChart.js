@@ -4,6 +4,13 @@ import { getUserData} from "../data/apiData";
 import {Navigate} from "react-router-dom";
 import {useFetchUserData} from "../hooks/fetchUserData";
 
+/**
+ * Renders a score chart based on the user's data.
+ *
+ * @param {Object} props - The properties passed to the component.
+ * @param {string} props.userId - The unique identifier of the user.
+ * @return {React.Element} - The score chart component.
+ */
 function ScoreChart({ userId }) {
 
     const { data: user, loading, error } = useFetchUserData(userId, getUserData);

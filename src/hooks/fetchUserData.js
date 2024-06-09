@@ -1,5 +1,12 @@
 import { useState, useEffect } from 'react';
 
+/**
+ * Fetches user data from the server using the provided fetchDataFunc.
+ *
+ * @param {string} userId - The id of the user to fetch data for.
+ * @param {function} fetchDataFunc - The function to fetch user data from the server.
+ * @return {object} - An object containing user data, loading state, and error state.
+ */
 export function useFetchUserData(userId, fetchDataFunc) {
     const [data, setData] = useState(null);
     const [loading, setLoading] = useState(true);

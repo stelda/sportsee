@@ -3,7 +3,14 @@ import { ResponsiveContainer, BarChart, CartesianGrid, XAxis, YAxis,  Tooltip, L
 import { getUserActivity} from "../data/apiData";
 import {Navigate} from "react-router-dom";
 
-
+/**
+ * Renders a daily activity chart for a given user.
+ *
+ * @param {object} props - The props object containing the following property:
+ *   - userId: The ID of the user.
+ *
+ * @return {JSX.Element} The rendered daily activity chart component.
+ */
 function DailyActivityChart({ userId }) {
 
     const [userActivity, setUserActivity] = useState(null);

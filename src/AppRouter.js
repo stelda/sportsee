@@ -3,6 +3,11 @@ import {Routes, Route, Navigate} from 'react-router-dom';
 import Error404 from "./pages/Error404";
 import MainContent from "./pages/MainContent";
 
+/**
+ * Initializes the AppRouter component to handle routing in the application.
+ *
+ * @returns {ReactElement} The rendered Routes component with defined routes for the application.
+ */
 function AppRouter() {
     return (
         <Routes>

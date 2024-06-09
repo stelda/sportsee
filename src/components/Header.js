@@ -1,5 +1,10 @@
 import React from 'react';
 
+/**
+ * Renders the header component for the SportSee application.
+ *
+ * @return {React.Component} The header component.
+ */
 function Header() {
     return (
         <header className="header">

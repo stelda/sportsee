@@ -4,6 +4,10 @@ import swimmer from '../assets/sidebar_swimmer.png';
 import bicycle from '../assets/sidebar_bicycle.png';
 import dumbbell from '../assets/sidebar_dumbbell.png';
 
+/**
+ * Renders the sidebar component.
+ * @return {JSX.Element} The rendered sidebar element containing a list of images and a copyright notice.
+ */
 function Sidebar() {
     return (
         <aside className="sidebar">

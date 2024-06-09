@@ -3,6 +3,13 @@ import { ResponsiveContainer, RadarChart, PolarGrid, PolarAngleAxis, Radar, Tool
 import { getUserPerformance} from "../data/apiData";
 import {Navigate} from "react-router-dom";
 
+/**
+ * Renders a performance chart for a given user ID.
+ *
+ * @param {object} props - The component props.
+ * @param {string} props.userId - The ID of the user.
+ * @returns {JSX.Element} The performance chart component.
+ */
 function PerformanceChart({ userId }) {
 
     const [userPerformance, setUserPerformance] = useState(null);

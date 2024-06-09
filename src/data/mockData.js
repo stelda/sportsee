@@ -1,3 +1,7 @@
+/**
+ * Array of user main data.
+ * @type {Array}
+ */
 export const USER_MAIN_DATA = [
     {
         id: 12,
