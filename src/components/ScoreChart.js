@@ -1,27 +1,12 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import { RadialBarChart, RadialBar, ResponsiveContainer } from 'recharts';
 import { getUserData} from "../data/apiData";
 import {Navigate} from "react-router-dom";
+import {useFetchUserData} from "../hooks/fetchUserData";
 
 function ScoreChart({ userId }) {
 
-    const [user, setUser] = useState(null);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
-
-    useEffect(() => {
-        const fetchUserData = async () => {
-            try {
-                const data = await getUserData(userId);
-                setUser(data);
-            } catch (err) {
-                setError(err);
-            } finally {
-                setLoading(false);
-            }
-        }
-        fetchUserData();
-    }, [userId]);
+    const { data: user, loading, error } = useFetchUserData(userId, getUserData);
 
     if (loading) {
         return <p>Loading...</p>;

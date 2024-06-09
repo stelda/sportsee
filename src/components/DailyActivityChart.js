@@ -120,7 +120,7 @@ function DailyActivityChart({ userId }) {
                         iconType="circle"
                         iconSize={10}
                         wrapperStyle={{ top: 0, right: 0, fontSize: 14, color: '#74798C' }}
-                        formatter={(value, entry, index) => <span className='legend-text'>{value}</span>}
+                        formatter={(value) => <span className='legend-text'>{value}</span>}
                     />
                     <Bar
                         yAxisId="weight"
