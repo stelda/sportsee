@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import { ResponsiveContainer, BarChart, CartesianGrid, XAxis, YAxis,  Tooltip, Legend, Bar } from 'recharts';
 import { getUserActivity} from "../data/apiData";
 import {Navigate} from "react-router-dom";
+import PropTypes from "prop-types";
 
 /**
  * Renders a daily activity chart for a given user.
@@ -150,5 +151,9 @@ function DailyActivityChart({ userId }) {
         </div>
     );
 }
+
+DailyActivityChart.propTypes = {
+    userId: PropTypes.string.isRequired,
+};
 
 export default DailyActivityChart;

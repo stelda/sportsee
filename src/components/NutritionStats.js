@@ -3,6 +3,7 @@ import iconCalories from '../assets/icon_calories.png';
 import iconProteins from '../assets/icon_proteins.png';
 import iconCarbs from '../assets/icon_carbs.png';
 import iconFats from '../assets/icon_fats.png';
+import PropTypes from "prop-types";
 
 /**
  * Renders the nutrition statistics based on the provided keyData.
@@ -57,5 +58,14 @@ function NutritionStats({ keyData }) {
         </div>
     );
 }
+
+NutritionStats.propTypes = {
+    keyData: PropTypes.shape({
+        calorieCount: PropTypes.number.isRequired,
+        proteinCount: PropTypes.number.isRequired,
+        carbohydrateCount: PropTypes.number.isRequired,
+        lipidCount: PropTypes.number.isRequired,
+    }).isRequired,
+};
 
 export default NutritionStats;

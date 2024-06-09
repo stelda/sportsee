@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {ResponsiveContainer, LineChart, Line, XAxis, YAxis, Tooltip, Rectangle, Legend} from 'recharts';
 import { getUserAverageSessions} from "../data/apiData";
 import {Navigate} from "react-router-dom";
+import PropTypes from "prop-types";
 
 /**
  * Renders an average sessions chart for a specific user.
@@ -37,7 +38,6 @@ function AverageSessionsChart({ userId }) {
     if (error || !userSessions) {
         return <Navigate to="/404" />;
     }
-
 
     const data = userSessions.sessions.map(session => ({
         day: session.day,
@@ -82,9 +82,7 @@ function AverageSessionsChart({ userId }) {
 
     return (
         <div className="average-sessions-chart">
-
             <ResponsiveContainer width="100%" height={263}>
-
                 <LineChart data={data} margin={{top: 20, right: 20, left: 20, bottom: 5}}>
                     <Legend content={renderLegend}/>
                     <XAxis
@@ -112,5 +110,9 @@ function AverageSessionsChart({ userId }) {
         </div>
     );
 }
+
+AverageSessionsChart.propTypes = {
+    userId: PropTypes.string.isRequired,
+};
 
 export default AverageSessionsChart;

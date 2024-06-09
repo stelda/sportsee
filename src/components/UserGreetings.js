@@ -2,6 +2,7 @@ import React from 'react';
 import { Navigate } from 'react-router-dom';
 import { getUserData} from "../data/apiData";
 import {useFetchUserData} from "../hooks/fetchUserData";
+import PropTypes from "prop-types";
 
 /**
  * Render the user greetings section.
@@ -32,5 +33,9 @@ function UserGreetings({userId}) {
         </section>
     );
 }
+
+UserGreetings.propTypes = {
+    userId: PropTypes.string.isRequired
+};
 
 export default UserGreetings;

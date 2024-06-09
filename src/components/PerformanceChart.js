@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import { ResponsiveContainer, RadarChart, PolarGrid, PolarAngleAxis, Radar, Tooltip } from 'recharts';
 import { getUserPerformance} from "../data/apiData";
 import {Navigate} from "react-router-dom";
+import PropTypes from "prop-types";
 
 /**
  * Renders a performance chart for a given user ID.
@@ -39,8 +40,6 @@ function PerformanceChart({ userId }) {
     if (error || !userPerformance) {
         return <Navigate to="/404" />;
     }
-
-
 
     const translateKind = (kind) => {
         const translation = {
@@ -86,5 +85,9 @@ function PerformanceChart({ userId }) {
         </div>
     );
 }
+
+PerformanceChart.propTypes = {
+    userId: PropTypes.string.isRequired
+};
 
 export default PerformanceChart;

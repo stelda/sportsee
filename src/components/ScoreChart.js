@@ -3,6 +3,7 @@ import { RadialBarChart, RadialBar, ResponsiveContainer } from 'recharts';
 import { getUserData} from "../data/apiData";
 import {Navigate} from "react-router-dom";
 import {useFetchUserData} from "../hooks/fetchUserData";
+import PropTypes from "prop-types";
 
 /**
  * Renders a score chart based on the user's data.
@@ -88,5 +89,9 @@ function ScoreChart({ userId }) {
         </div>
     );
 }
+
+ScoreChart.propTypes = {
+    userId: PropTypes.string.isRequired
+};
 
 export default ScoreChart;
