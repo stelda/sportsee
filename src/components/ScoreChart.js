@@ -24,15 +24,17 @@ function ScoreChart({ userId }) {
         return <Navigate to="/404" />;
     }
 
+    const score = user.data.todayScore || user.data.score;
+
     const data = [
         {
             name: 'Score',
-            value: user.data.todayScore * 100,
+            value: score * 100,
             fill: '#E60000'
         }
     ];
 
-    const endAngle = 90 + (user.data.todayScore * 360);
+    const endAngle = 90 + (score * 360);
 
     return (
         <div className="score-chart">
