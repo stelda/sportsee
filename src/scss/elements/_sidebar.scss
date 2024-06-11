@@ -1,5 +1,5 @@
 .sidebar {
-    @include layout(column, center, center);
+  @include layout(column, center, center);
   width: 80px;
   padding: 0 20px;
   background-color: black;

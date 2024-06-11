@@ -2,6 +2,9 @@
 .dashboard {
   @include layout(row, space-between, stretch);
   gap: 20px;
+  @media screen and (max-width: 1024px) {
+    @include layout(column, flex-start, stretch);
+  }
 }
 
 /* (daily activity) chart & widgets */

@@ -1,11 +1,18 @@
 .nutrition {
-  width: 25%
+  width: 25%;
+  @media screen and (max-width: 1245px) {
+    width: 100%;
+  }
 }
 
 .nutrition-stats {
   @include layout(column, space-between, stretch);
   height: 100%;
   gap: 20px;
+  @media screen and (max-width: 1024px) {
+    @include layout(row, space-between, stretch);
+    width: 100%;
+  }
 
   & > div {
     @include layout(row, flex-start, center);

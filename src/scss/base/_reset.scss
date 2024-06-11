@@ -5,6 +5,9 @@ body {
   padding: 0;
   height: 100%;
   font-family: Roboto, sans-serif;
+  @media screen and (max-width: 1245px) {
+    zoom: 0.8;
+  }
 }
 
 h1, h2, h3, p {

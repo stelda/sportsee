@@ -8,4 +8,7 @@
   width: 100%;
   padding: 50px 100px;
   gap: 30px;
+  @media screen and (max-width: 1245px){
+  padding: 50px;
+  }
 }
