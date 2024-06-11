@@ -35,7 +35,11 @@ function DailyActivityChart({ userId }) {
     }, [userId]);
 
     if (loading) {
-        return <p>Loading...</p>;
+        return (
+            <div className="main-content">
+                <p>Loading...</p>
+            </div>
+        );
     }
 
     if (error || !userActivity) {

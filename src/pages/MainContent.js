@@ -16,7 +16,11 @@ function MainContent() {
     const { data: user, loading, error } = useFetchUserData(userId, getUserData);
 
         if (loading) {
-            return <p>Loading...</p>;
+            return (
+                <div className="main-content">
+                    <p>Loading...</p>
+                </div>
+            );
         }
 
         if (error || !user) {
