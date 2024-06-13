@@ -4,6 +4,8 @@ import Dashboard from '../components/Dashboard';
 import {Navigate, useParams} from "react-router-dom";
 import { getUserData} from "../data/apiData";
 import {useFetchUserData} from "../hooks/fetchUserData";
+import { USER_MAIN_DATA } from "../data/mockData";
+import { IS_DEVELOPMENT_MODE } from '../config.js';
 
 /**
  * Renders the main content of the app based on the given user ID.
@@ -13,19 +15,29 @@ import {useFetchUserData} from "../hooks/fetchUserData";
 function MainContent() {
     const { userId } = useParams();
 
-    const { data: user, loading, error } = useFetchUserData(userId, getUserData);
-
-        if (loading) {
-            return (
-                <div className="main-content">
-                    <p>Loading...</p>
-                </div>
-            );
+    const userDataRetrievalFunction = IS_DEVELOPMENT_MODE ? async (userId) => {
+            const mockData = USER_MAIN_DATA.find(user => user.id === parseInt(userId));
+            if(mockData) {
+                return {data: mockData};
+            } else {
+                throw new Error('No mock data available');
+            }
         }
+        : getUserData;
 
-        if (error || !user) {
-            return <Navigate to="/404" />;
-        }
+    const { data: user, loading, error } = useFetchUserData(userId, userDataRetrievalFunction);
+
+    if (loading) {
+        return (
+            <div className="main-content">
+                <p>Loading...</p>
+            </div>
+        );
+    }
+
+    if (error || !user) {
+        return <Navigate to="/404" />;
+    }
 
     return (
         <main className="main-content">

@@ -3,6 +3,8 @@ import { ResponsiveContainer, RadarChart, PolarGrid, PolarAngleAxis, Radar, Tool
 import { getUserPerformance} from "../data/apiData";
 import {Navigate} from "react-router-dom";
 import PropTypes from "prop-types";
+import {USER_PERFORMANCE} from "../data/mockData";
+import { IS_DEVELOPMENT_MODE } from '../config.js';
 
 /**
  * Renders a performance chart for a given user ID.
@@ -19,13 +21,26 @@ function PerformanceChart({ userId }) {
 
     useEffect(() => {
         const fetchUserData = async () => {
-            try {
-                const data = await getUserPerformance(userId);
-                setUserPerformance(data.data);
-            } catch (err) {
-                setError(err);
-            } finally {
+            if (IS_DEVELOPMENT_MODE) {
+                const mockData = USER_PERFORMANCE.find(activity => activity.userId === parseInt(userId));
+
+                if(mockData) {
+                    setUserPerformance(mockData);
+                } else {
+                    setError(new Error('No mock data available'));
+                }
+
                 setLoading(false);
+            }
+            else {
+                try {
+                    const data = await getUserPerformance(userId);
+                    setUserPerformance(data.data);
+                } catch (err) {
+                    setError(err);
+                } finally {
+                    setLoading(false);
+                }
             }
         };
 

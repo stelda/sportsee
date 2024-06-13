@@ -1,0 +1,1 @@
+export const IS_DEVELOPMENT_MODE =  true; // Change to true for development mode

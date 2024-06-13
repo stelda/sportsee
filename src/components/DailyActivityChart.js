@@ -3,6 +3,8 @@ import { ResponsiveContainer, BarChart, CartesianGrid, XAxis, YAxis,  Tooltip, L
 import { getUserActivity} from "../data/apiData";
 import {Navigate} from "react-router-dom";
 import PropTypes from "prop-types";
+import { USER_ACTIVITY } from "../data/mockData";
+import { IS_DEVELOPMENT_MODE } from '../config.js';
 
 /**
  * Renders a daily activity chart for a given user.
@@ -20,14 +22,28 @@ function DailyActivityChart({ userId }) {
 
     useEffect(() => {
         const fetchUserData = async () => {
-            try {
-                const data = await getUserActivity(userId);
-                setUserActivity(data.data);
-            } catch (err) {
-                setError(err);
-            }
-            finally {
+
+            if (IS_DEVELOPMENT_MODE) {
+                const mockData = USER_ACTIVITY.find(activity => activity.userId === parseInt(userId));
+
+                if(mockData) {
+                    setUserActivity(mockData);
+                } else {
+                    setError(new Error('No mock data available'));
+                }
+
                 setLoading(false);
+            }
+            else {
+                try {
+                    const data = await getUserActivity(userId);
+                    setUserActivity(data.data);
+                } catch (err) {
+                    setError(err);
+                }
+                finally {
+                    setLoading(false);
+                }
             }
         };
 

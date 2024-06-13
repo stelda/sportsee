@@ -3,6 +3,8 @@ import {ResponsiveContainer, LineChart, Line, XAxis, YAxis, Tooltip, Rectangle, 
 import { getUserAverageSessions} from "../data/apiData";
 import {Navigate} from "react-router-dom";
 import PropTypes from "prop-types";
+import { USER_AVERAGE_SESSIONS } from "../data/mockData";
+import { IS_DEVELOPMENT_MODE } from '../config';
 
 /**
  * Renders an average sessions chart for a specific user.
@@ -18,13 +20,27 @@ function AverageSessionsChart({ userId }) {
 
     useEffect(() => {
         const fetchUserData = async () => {
-            try {
-                const data = await getUserAverageSessions(userId);
-                setUserSessions(data.data);
-            } catch (err) {
-                setError(err);
-            } finally {
+
+            if (IS_DEVELOPMENT_MODE) {
+                const mockData = USER_AVERAGE_SESSIONS.find(session => session.userId === parseInt(userId));
+
+                if(mockData) {
+                    setUserSessions(mockData);
+                } else {
+                    setError(new Error('No mock data available'));
+                }
+
                 setLoading(false);
+            }
+            else {
+                try {
+                    const data = await getUserAverageSessions(userId);
+                    setUserSessions(data.data);
+                } catch (err) {
+                    setError(err);
+                } finally {
+                    setLoading(false);
+                }
             }
         };
 

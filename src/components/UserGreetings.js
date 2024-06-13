@@ -3,6 +3,8 @@ import { Navigate } from 'react-router-dom';
 import { getUserData} from "../data/apiData";
 import {useFetchUserData} from "../hooks/fetchUserData";
 import PropTypes from "prop-types";
+import { USER_MAIN_DATA } from "../data/mockData";
+import { IS_DEVELOPMENT_MODE } from '../config.js';
 
 /**
  * Render the user greetings section.
@@ -14,7 +16,17 @@ import PropTypes from "prop-types";
  */
 function UserGreetings({userId}) {
 
-    const { data: user, loading, error } = useFetchUserData(userId, getUserData);
+    const userDataRetrievalFunction = IS_DEVELOPMENT_MODE ? async (userId) => {
+            const mockData = USER_MAIN_DATA.find(user => user.id === parseInt(userId));
+            if(mockData) {
+                return {data: mockData};
+            } else {
+                throw new Error('No mock data available');
+            }
+        }
+        : getUserData;
+
+    const { data: user, loading, error } = useFetchUserData(userId, userDataRetrievalFunction);
 
     if (loading) {
         return (

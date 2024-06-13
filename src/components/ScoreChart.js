@@ -4,6 +4,8 @@ import { getUserData} from "../data/apiData";
 import {Navigate} from "react-router-dom";
 import {useFetchUserData} from "../hooks/fetchUserData";
 import PropTypes from "prop-types";
+import { USER_MAIN_DATA } from "../data/mockData";
+import { IS_DEVELOPMENT_MODE } from '../config.js';
 
 /**
  * Renders a score chart based on the user's data.
@@ -14,7 +16,18 @@ import PropTypes from "prop-types";
  */
 function ScoreChart({ userId }) {
 
-    const { data: user, loading, error } = useFetchUserData(userId, getUserData);
+    const userDataRetrievalFunction = IS_DEVELOPMENT_MODE ? async (userId) => {
+            const mockData = USER_MAIN_DATA.find(user => user.id === parseInt(userId));
+            if(mockData) {
+                return {data: mockData};
+            } else {
+                throw new Error('No mock data available');
+            }
+        }
+        : getUserData;
+
+    const { data: user, loading, error } = useFetchUserData(userId, userDataRetrievalFunction);
+
 
     if (loading) {
         return (
