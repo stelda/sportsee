@@ -5,6 +5,7 @@ import {Navigate} from "react-router-dom";
 import PropTypes from "prop-types";
 import {USER_PERFORMANCE} from "../data/mockData";
 import { IS_DEVELOPMENT_MODE } from '../config.js';
+import DataFormatter from "../utils/DataFormatter";
 
 /**
  * Renders a performance chart for a given user ID.
@@ -60,22 +61,7 @@ function PerformanceChart({ userId }) {
         return <Navigate to="/404" />;
     }
 
-    const translateKind = (kind) => {
-        const translation = {
-            cardio: 'Cardio',
-            energy: 'Énergie',
-            endurance: 'Endurance',
-            strength: 'Force',
-            speed: 'Vitesse',
-            intensity: 'Intensité'
-        };
-        return translation[kind];
-    };
-
-    const data = userPerformance.data.map(item => ({
-        subject: translateKind(userPerformance.kind[item.kind]),
-        value: item.value,
-    }));
+    const data = DataFormatter.formatUserPerformance(userPerformance);
 
     return (
         <div className="performance-chart">

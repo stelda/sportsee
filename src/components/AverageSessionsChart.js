@@ -5,6 +5,7 @@ import {Navigate} from "react-router-dom";
 import PropTypes from "prop-types";
 import { USER_AVERAGE_SESSIONS } from "../data/mockData";
 import { IS_DEVELOPMENT_MODE } from '../config';
+import DataFormatter from "../utils/DataFormatter";
 
 /**
  * Renders an average sessions chart for a specific user.
@@ -59,10 +60,7 @@ function AverageSessionsChart({ userId }) {
         return <Navigate to="/404" />;
     }
 
-    const data = userSessions.sessions.map(session => ({
-        day: session.day,
-        sessionLength: session.sessionLength
-    }));
+    const data = DataFormatter.formatUserSessions(userSessions);
 
     const daysOfWeek = ['L', 'M', 'M', 'J', 'V', 'S', 'D'];
 

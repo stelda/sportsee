@@ -6,6 +6,7 @@ import {useFetchUserData} from "../hooks/fetchUserData";
 import PropTypes from "prop-types";
 import { USER_MAIN_DATA } from "../data/mockData";
 import { IS_DEVELOPMENT_MODE } from '../config.js';
+import DataFormatter from "../utils/DataFormatter";
 
 /**
  * Renders a score chart based on the user's data.
@@ -41,17 +42,7 @@ function ScoreChart({ userId }) {
         return <Navigate to="/404" />;
     }
 
-    const score = user.data.todayScore || user.data.score;
-
-    const data = [
-        {
-            name: 'Score',
-            value: score * 100,
-            fill: '#E60000'
-        }
-    ];
-
-    const endAngle = 90 + (score * 360);
+    const data = DataFormatter.formatUserScore(user);
 
     return (
         <div className="score-chart">
@@ -64,7 +55,7 @@ function ScoreChart({ userId }) {
                     barSize={10}
                     data={data}
                     startAngle={90}
-                    endAngle={endAngle}
+                    endAngle={data[0].endAngle}
                 >
                     <text
                         x={50}

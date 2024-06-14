@@ -5,6 +5,7 @@ import {Navigate} from "react-router-dom";
 import PropTypes from "prop-types";
 import { USER_ACTIVITY } from "../data/mockData";
 import { IS_DEVELOPMENT_MODE } from '../config.js';
+import DataFormatter from "../utils/DataFormatter";
 
 /**
  * Renders a daily activity chart for a given user.
@@ -62,12 +63,7 @@ function DailyActivityChart({ userId }) {
         return <Navigate to="/404" />;
     }
 
-    /* format data for the chart */
-    const data = userActivity.sessions.map(session => ({
-        day: new Date(session.day).getDate(),
-        kilogram: session.kilogram,
-        calories: session.calories
-    }));
+    const data = DataFormatter.formatUserActivity(userActivity);
 
     /* calculate the domain for the weight axis */
     const calculateDomain = (data) => {
