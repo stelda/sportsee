@@ -1,6 +1,9 @@
 class DataFormatter {
 
-    /* format Daily Activity Chart data */
+/**
+ * Formats the user activity by extracting the day, kilogram, and calories
+ * from each session in the provided user activity.
+ */
     static formatUserActivity(userActivity) {
         return userActivity.sessions.map(session => ({
             day: new Date(session.day).getDate(),
@@ -9,7 +12,9 @@ class DataFormatter {
         }));
     }
 
-    /* format Average Sessions Chart data */
+/**
+ * Formats user sessions.
+ */
     static formatUserSessions(userSessions) {
         return userSessions.sessions.map(session => ({
             day: session.day,
@@ -17,7 +22,9 @@ class DataFormatter {
         }));
     }
 
-    /* format Performance Chart data */
+/**
+ * Format the user performance data.
+ */
     static formatUserPerformance(userPerformance) {
         const translateKind = (kind) => {
             const translation = {
@@ -37,7 +44,9 @@ class DataFormatter {
         }));
     }
 
-    /* format Score Chart data */
+/**
+ * Formats the user score data.
+ */
     static formatUserScore(user) {
         const score = user.data.todayScore || user.data.score;
         const name = 'Score';
