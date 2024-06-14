@@ -1,8 +1,11 @@
+/**
+ * Class for formatting user data.
+ * @class
+ */
 class DataFormatter {
 
 /**
- * Formats the user activity by extracting the day, kilogram, and calories
- * from each session in the provided user activity.
+ * Formats the user activity for the Daily Activity Chart
  */
     static formatUserActivity(userActivity) {
         return userActivity.sessions.map(session => ({
@@ -13,7 +16,7 @@ class DataFormatter {
     }
 
 /**
- * Formats user sessions.
+ * Formats user sessions data for the Average Sessions Chart.
  */
     static formatUserSessions(userSessions) {
         return userSessions.sessions.map(session => ({
@@ -23,7 +26,7 @@ class DataFormatter {
     }
 
 /**
- * Format the user performance data.
+ * Format user performance data for the Performance Chart.
  */
     static formatUserPerformance(userPerformance) {
         const translateKind = (kind) => {
@@ -45,7 +48,7 @@ class DataFormatter {
     }
 
 /**
- * Formats the user score data.
+ * Formats the user score data for the Score Chart.
  */
     static formatUserScore(user) {
         const score = user.data.todayScore || user.data.score;
