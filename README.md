@@ -14,7 +14,7 @@ Clone the repository from GitHub and navigate to the project directory:
 In the project directory, you can run:
 
 ```bash
-git clone https://github.com/your-username/sportsee.git
+git clone https://github.com/stelda/sportsee.git
 ```
 
 ### 2. Install dependencies for the React application
